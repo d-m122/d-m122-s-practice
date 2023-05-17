@@ -1,3 +1,5 @@
+//ã‚¨ãƒ‡ã‚£ãƒ³ãƒˆãƒ³æ•°ã‚’æ±‚ã‚ã€å‡ºåŠ›ã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+
 #include <stdio.h>
 
 #define Z 80
@@ -5,46 +7,46 @@
 int main()
 {
 	
-	int kisu;       //Šî”i‚Qj
-  	int exponent;   //w”i‚Q‚T‚Uj
-	int cnt = 1;   //ŒvZ‰ñ”•\¦—p
-	int value;     //”i‚P‚R‚Uj
+	int kisu;       //åŸºæ•°ï¼ˆï¼’ï¼‰
+  	int exponent;   //æŒ‡æ•°ï¼ˆï¼’ï¼•ï¼–ï¼‰
+	int cnt = 1;   //è¨ˆç®—å›æ•°è¡¨ç¤ºç”¨
+	int value;     //æ•°ï¼ˆï¼‘ï¼“ï¼–ï¼‰
 	int value_tmp;
 	int x = 0;
-	int ans_str[Z] = {0};   //ŒvZŒã”z—ñ
+	int ans_str[Z] = {0};   //è¨ˆç®—å¾Œé…åˆ—
 	int i = Z - 1;
 	int flg = 0;
 	int keta;
 	int k;
 	int work;
 	
-	printf("”‚ğ“ü—Í(136)F");        //“ü—Í
+	printf("æ•°ã‚’å…¥åŠ›(136)ï¼š");        //å…¥åŠ›
 	scanf("%d",&value);
 	value_tmp = value;
-	printf("Šî”‚ğ“ü—Í(2)F");
+	printf("åŸºæ•°ã‚’å…¥åŠ›(2)ï¼š");
 	scanf("%d",&kisu);
-	printf("w”‚ğ“ü—Í(256)F");
+	printf("æŒ‡æ•°ã‚’å…¥åŠ›(256)ï¼š");
 	scanf("%d",&exponent);
 	
-	if(exponent < 0 || kisu < 0 || value < 0){           //’l‚ª0–¢–‚Ìê‡
-		printf("0ˆÈã‚Ì’l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
+	if(exponent < 0 || kisu < 0 || value < 0){           //å€¤ãŒ0æœªæº€ã®å ´åˆ
+		printf("0ä»¥ä¸Šã®å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„\n");
 		return 0;
 	}
 	
-	if(exponent == 0){    //N>0‚Ì‚Åw”‚ª2ˆÈã‚Ì
+	if(exponent == 0){    //N>0ã®æ™‚ã§æŒ‡æ•°ãŒ2ä»¥ä¸Šã®æ™‚
 		kisu = 1;
 		exponent = 1;
 	}
 	
-	if(kisu == 0){                         //’è‹`‚Å‚«‚È‚¢
-		printf("%d‚Ì%dæ ‚ 0\n",kisu,exponent);
-		printf("’è‹`‚Å‚«‚Ü‚¹‚ñ\n");
+	if(kisu == 0){                         //å®šç¾©ã§ããªã„
+		printf("%dã®%dä¹— â‰  0\n",kisu,exponent);
+		printf("å®šç¾©ã§ãã¾ã›ã‚“\n");
 		return 0;
 	}
 	
 	cnt += exponent;
 	
-	for(keta=1;value!=0 && keta<= Z;){  //Œ…‚ ‚Ó‚ê–h~•‚PˆÈã
+	for(keta=1;value!=0 && keta<= Z;){  //æ¡ã‚ãµã‚Œé˜²æ­¢ï¼†ï¼‘ä»¥ä¸Š
 		ans_str[Z-keta] = value % 10;
 		value = value/10;
 		if(value > 0){
@@ -57,16 +59,16 @@ int main()
 			x += ans_str[i];
 			x = x * kisu;
 			
-			if(flg == 1){             //Œ…‚ ‚ª‚è‚Ìê‡‚Ìˆ—
+			if(flg == 1){             //æ¡ã‚ãŒã‚Šã®å ´åˆã®å‡¦ç†
 				x += work / 10;
 				work = 0;
 				flg = 0;
 			}
 			
 			if(x < 10){
-				ans_str[i] = x;  //ŒvZŒ‹‰Ê‚ª2Œ…‚©‚Ì”»’è
+				ans_str[i] = x;  //è¨ˆç®—çµæœãŒ2æ¡ã‹ã®åˆ¤å®š
 			}else{
-				work = x;  //2Œ…‚¾‚Á‚½ê‡
+				work = x;  //2æ¡ã ã£ãŸå ´åˆ
 				ans_str[i] = x % 10;
 				flg = 1;
 			}
@@ -76,24 +78,24 @@ int main()
 			
 		}
 		
-		if(flg == 1){          //ÅŒã‚ÌŒ…‚ªã‚ª‚éê‡‚Ìˆ—
+		if(flg == 1){          //æœ€å¾Œã®æ¡ãŒä¸ŠãŒã‚‹å ´åˆã®å‡¦ç†
 			ans_str[i] = 1;
 			keta++;
 			flg = 0;
 		}
 		
-		printf("%3d‰ñ–Ú:",cnt-exponent);//ŒvZ‰ñ”•\¦
+		printf("%3då›ç›®:",cnt-exponent);//è¨ˆç®—å›æ•°è¡¨ç¤º
 		printf("%d * %d ^ %3d = ",value_tmp,kisu,cnt-exponent);
-		for(i=keta;i<Z;i++){             //‰E‹l‚ßˆ—
+		for(i=keta;i<Z;i++){             //å³è©°ã‚å‡¦ç†
 			printf(" ");
 		}
 		
-		for(i=Z-keta ;i<Z;i++){      //ŒvZŒ‹‰Ê•\¦
+		for(i=Z-keta ;i<Z;i++){      //è¨ˆç®—çµæœè¡¨ç¤º
 			printf("%d",ans_str[i]);
 		}
 		
 		printf("\n");
-		i = Z - 1;   //i‚Ì‰Šú‰»
+		i = Z - 1;   //iã®åˆæœŸåŒ–
 		
 	}
 	
