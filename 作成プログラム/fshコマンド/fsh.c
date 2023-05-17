@@ -1,3 +1,5 @@
+//WINDOWSã«æ­è¼‰ã•ã‚Œã¦ã„ã‚‹fshã‚³ãƒãƒ³ãƒ‰ã‚’Cè¨€èªã§ä½œæˆã—ãŸãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,17 +9,17 @@
 #define N 1024
 #define L 32
 
-//ƒvƒƒgƒ^ƒCƒvéŒ¾
-void check_option(char*); //ƒIƒvƒVƒ‡ƒ“‚Ì‘®ƒ`ƒFƒbƒN
-int check_str(char*,char*,int);  //•¶š—ñŒŸõ
-char lower(char);//¬•¶š•ÏŠ·
+//ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
+void check_option(char*); //ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã®æ›¸å¼ãƒã‚§ãƒƒã‚¯
+int check_str(char*,char*,int);  //æ–‡å­—åˆ—æ¤œç´¢
+char lower(char);//å°æ–‡å­—å¤‰æ›
 
-void main(int argc ,char *argv[]) //mainŠÖ”
+void main(int argc ,char *argv[]) //mainé–¢æ•°
 {
 	char filename[N];
 	int flg = 0;
 	
-	if(argc == 3){  //ˆø”‚Ì”iargcj‚ÌŠm”F
+	if(argc == 3){  //å¼•æ•°ã®æ•°ï¼ˆargcï¼‰ã®ç¢ºèª
 		strcpy(filename,argv[2]);
 		check_str(argv[1],filename,flg);
 	}else if(argc == 4){
@@ -26,13 +28,13 @@ void main(int argc ,char *argv[]) //mainŠÖ”
 		flg = 1;
 		check_str(argv[2],filename,flg);
 	}else {
-		printf("ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ˆø”‚ğ³‚µ‚­“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
+		printf("ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³å¼•æ•°ã‚’æ­£ã—ãå…¥åŠ›ã—ã¦ãã ã•ã„\n");
 		exit(0);
 	}
 }
 
 	
-void check_option(char *opt) //ƒIƒvƒVƒ‡ƒ“‚Ì‘®ƒ`ƒFƒbƒN
+void check_option(char *opt) //ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã®æ›¸å¼ãƒã‚§ãƒƒã‚¯
 {	
 	int i = 0;
 	int flag = 0;
@@ -47,26 +49,26 @@ void check_option(char *opt) //ƒIƒvƒVƒ‡ƒ“‚Ì‘®ƒ`ƒFƒbƒN
 		i++;
 	}
 	if(flag == 1){
-		printf("ƒIƒvƒVƒ‡ƒ“‚Ì‘®‚ªˆá‚¢‚Ü‚·\nÄ“x“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
+		printf("ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã®æ›¸å¼ãŒé•ã„ã¾ã™\nå†åº¦å…¥åŠ›ã—ã¦ãã ã•ã„\n");
 		exit(0);
 	}
 	return;
 }
 	
 	
-int check_str(char *f_str ,char *filename,int flg) //•”•ªˆê’vŒŸõ
+int check_str(char *f_str ,char *filename,int flg) //éƒ¨åˆ†ä¸€è‡´æ¤œç´¢
 {
 	FILE *fp;
-	char str[N];                          //str “ü—Í‚³‚ê‚½•¶š—ñ
+	char str[N];                          //str å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—åˆ—
 	char *find;
 	char low_str[N];
-	int strnum; //ŒŸõ‘ÎÛ•¶š—ñ
-	int f_strnum; //ŒŸõ•¶š—ñ
+	int strnum; //æ¤œç´¢å¯¾è±¡æ–‡å­—åˆ—
+	int f_strnum; //æ¤œç´¢æ–‡å­—åˆ—
 	int i;
 	int flg2 = 0;
 	
 	if( (fp = fopen(filename, "r")) == NULL){
-		printf("ƒI[ƒvƒ“ƒGƒ‰[\n");
+		printf("ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼\n");
 		fclose(fp);
 		return -1;
 	}
@@ -75,7 +77,7 @@ int check_str(char *f_str ,char *filename,int flg) //•”•ªˆê’vŒŸõ
 		for(i=0; i<f_strnum; i++){
 			f_str[i] = tolower(f_str[i]);
 		}
-		while(fgets(str, N, fp) != NULL) {        //•¶š—ñ’Šo
+		while(fgets(str, N, fp) != NULL) {        //æ–‡å­—åˆ—æŠ½å‡º
 			strnum = strlen(str);
 			strcpy(low_str,str);
 			for(i=0; i<strnum; i++){
@@ -84,21 +86,21 @@ int check_str(char *f_str ,char *filename,int flg) //•”•ªˆê’vŒŸõ
 			find = strstr(low_str,f_str);
 			if(find != NULL){
 				flg2 = 1;
-				printf("%s", str); //ˆê’v‚µ‚½s‚Ìo—Í
+				printf("%s", str); //ä¸€è‡´ã—ãŸè¡Œã®å‡ºåŠ›
 			} 
 			
 		}
 	} else {
-		while(fgets(str, N, fp) != NULL) {        //•¶š—ñ’Šo
+		while(fgets(str, N, fp) != NULL) {        //æ–‡å­—åˆ—æŠ½å‡º
 			find = strstr(str,f_str);
 			if(find != NULL){
 				flg2 = 1;
-				printf("%s", str); //ˆê’v‚µ‚½s‚Ìo—Í
+				printf("%s", str); //ä¸€è‡´ã—ãŸè¡Œã®å‡ºåŠ›
 			}
 		}
 	}
 	if(flg2 == 0){
-		printf("Œ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½\n");
+		printf("è¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸ\n");
 	}
 	fclose(fp);
 	return 0;
@@ -114,7 +116,7 @@ char* import_filename(char *filename)
 */
 
 /*
-int lower(int c)       //¬•¶š•ÏŠ·
+int lower(int c)       //å°æ–‡å­—å¤‰æ›
 {
 	if('A' <= c && c <= 'Z'){
         c += L;
@@ -124,7 +126,7 @@ int lower(int c)       //¬•¶š•ÏŠ·
 */
 
 /*
-char check_str(char *str1, char *str2)  //•”•ªˆê’v
+char check_str(char *str1, char *str2)  //éƒ¨åˆ†ä¸€è‡´
 {
   int i, j, k;
 
